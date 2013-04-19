@@ -4,7 +4,7 @@ AppWarpUnity
 Unity3D library for AppWarp.You simply need to download [AppWarpUnity.dll](https://github.com/shephertz/AppWarpUnity/blob/master/v1.0/AppWarpUnity.dll?raw=true) and import it as an Asset in to your Unity project 
 and you are all set!
 
-We have also added Unity 4 sample to illustrate how you use AppWarp API inside your Unity3D project. Its a basic sample
+We have also added a Unity 4 sample to illustrate how you use AppWarp API inside your Unity3D project. Its a basic sample
 that shows how to two users can connect and exchange their positions in real-time and see each others movements across a
 scene. 
 
