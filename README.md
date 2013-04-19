@@ -1,7 +1,7 @@
 AppWarpUnity
 ============
 
-Unity3D library for AppWarp.You simply need to download AppWarpUnity.dll and import it as an Asset in to your Unity project 
+Unity3D library for AppWarp.You simply need to download [AppWarpUnity.dll](https://github.com/shephertz/AppWarpUnity/blob/master/v1.0/AppWarpUnity.dll?raw=true) and import it as an Asset in to your Unity project 
 and you are all set!
 
 We have also added Unity 4 sample to illustrate how you use AppWarp API inside your Unity3D project. Its a basic sample
