@@ -10,7 +10,7 @@ scene.
 
 To use it follow these simple steps
 
-1) Register at [AppHQ developer console](http://apphq.shephertz.com)
+1) Register at [AppHQ developer console](https://apphq.shephertz.com/register?appwarp=true)
 
 2) Create an app of typ 'AppWarp'. Note its API Key and Secret Key.
 
