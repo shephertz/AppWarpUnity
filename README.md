@@ -1,6 +1,8 @@
 AppWarpUnity
 ============
 
+[![OverView](http://appwarp.shephertz.com/images/appwarp_logo.png)](http://appwarp.shephertz.com)
+
 Unity3D library for AppWarp.You simply need to download [AppWarpUnity.dll](https://github.com/shephertz/AppWarpUnity/blob/master/v1.0/AppWarpUnity.dll?raw=true) and import it as an Asset in to your Unity project 
 and you are all set!
 
@@ -26,6 +28,8 @@ Please visit [AppWarp](http://appwarp.shephertz.com/) to learn more about the pr
 [Reference](https://github.com/shephertz/AppWarp_WP7_SDK_DLL/wiki/Reference)
 
 [FAQ](https://github.com/shephertz/AppWarp_JAVA_SDK_JAR/wiki/FAQ)
+
+[![](http://blogs.shephertz.com/wp-content/uploads/2013/05/Signup.jpg)](https://apphq.shephertz.com/register?appwarp=true)[![](http://blogs.shephertz.com/wp-content/uploads/2013/05/AlreadyRegistered.jpg)](https://apphq.shephertz.com/)
 
 Note* If you are running the application as an Editor Application, you should listen to playmodeStateChanged events
 and call the Disconnect API of WarpClient instance. This will prevent your editor from hanging when the app quits.
