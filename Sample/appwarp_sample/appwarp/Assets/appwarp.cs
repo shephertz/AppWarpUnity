@@ -72,7 +72,7 @@ public class appwarp : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
         	Application.Quit();
     	}
-		
+		WarpClient.GetInstance().Update();
 		obj.transform.position = Vector3.Lerp(obj.transform.position, newPos, Time.deltaTime);
 	}
 	
