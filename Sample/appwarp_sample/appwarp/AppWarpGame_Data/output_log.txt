@@ -17,7 +17,7 @@ Platform assembly: J:\Win8\GitHub\AppWarp\AppWarpUnity\Sample\appwarp_sample\app
 Loading J:\Win8\GitHub\AppWarp\AppWarpUnity\Sample\appwarp_sample\appwarp\AppWarpGame_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: J:\Win8\GitHub\AppWarp\AppWarpUnity\Sample\appwarp_sample\appwarp\AppWarpGame_Data\Managed\AppWarpUnity.dll (this message is harmless)
 Loading J:\Win8\GitHub\AppWarp\AppWarpUnity\Sample\appwarp_sample\appwarp\AppWarpGame_Data\Managed\AppWarpUnity.dll into Unity Child Domain
-- Completed reload, in  0.108 seconds
+- Completed reload, in  0.275 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -30,12 +30,14 @@ calculateSignature
 Sign
 SortAndConvertTableToString
 apiKey
-apiKey69e08aec1fd40f59289d3d11eb8e9286838e43ba6a649bb80921766fc497a799timeStamp2013-05-27T13:28:51.391ZuserTestUserversion0.1
+apiKey00e9e2a781f1b87e3420b29725081305b689a6d151430bd96be33abc84f5db86timeStamp2013-06-11T14:20:19.157Zuser635065572169018871version1.1
 ComputeHmac
-signature: k/2l6f/KPYf0OeZg6PwFjIdZ0no=
-value: k%2F2l6f%2FKPYf0OeZg6PwFjIdZ0no%3D
+signature: gF/21FVqmTiZJ/wY0rURx3r11OQ=
+value: gF%2F21FVqmTiZJ%2FwY0rURx3r11OQ%3D
 
 Connected!
+
+
 
 
 

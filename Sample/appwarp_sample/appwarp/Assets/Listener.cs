@@ -226,9 +226,11 @@ namespace AssemblyCSharp
 			Log(eventObj.getSender() + " sended " + eventObj.getMessage());
 			SimpleJSON.JSONNode msg =  SimpleJSON.JSON.Parse(eventObj.getMessage());
 			
+			//msg[0] 
 			if(eventObj.getSender() != appwarp.username)
 			{
 				appwarp.movePlayer(msg["x"].AsFloat,msg["y"].AsFloat,msg["z"].AsFloat);
+				//Log(msg["x"].ToString()+" "+msg["y"].ToString()+" "+msg["z"].ToString());
 			}
 		}
 		
