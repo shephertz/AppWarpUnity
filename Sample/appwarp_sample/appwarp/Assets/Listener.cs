@@ -151,6 +151,16 @@ namespace AssemblyCSharp
 			
 		}
 		
+		public void onLockPropertiesDone(byte result)
+		{
+			Log ("onLockPropertiesDone : " + result);
+		}
+		
+		public void onUnlockPropertiesDone(byte result)
+		{
+			Log ("onUnlockPropertiesDone : " + result);
+		}
+		
 		public void onLeaveRoomDone (RoomEvent eventObj)
 		{
 			Log ("onLeaveRoomDone : " + eventObj.getResult());
@@ -183,6 +193,11 @@ namespace AssemblyCSharp
 		{
 			Log ("onSendChatDone result : " + result);
 			
+		}
+		
+		public void onSendPrivateChatDone(byte result)
+		{
+			Log ("onSendPrivateChatDone : " + result);
 		}
 		
 		//UpdateRequestListener
@@ -219,6 +234,21 @@ namespace AssemblyCSharp
 		public void onUserJoinedLobby (LobbyData eventObj, string username)
 		{
 			Log ("onUserJoinedLobby : " + username);
+		}
+		
+		public void onUserChangeRoomProperty(RoomData roomData, string sender, Dictionary<string, object> properties, Dictionary<string, string> lockedPropertiesTable)
+		{
+			Log ("onUserChangeRoomProperty : " + sender);
+		}
+			
+		public void onPrivateChatReceived(string sender, string message)
+		{
+			Log ("onPrivateChatReceived : " + sender);
+		}
+		
+		public void onMoveCompleted(MoveEvent move)
+		{
+			Log ("onMoveCompleted by : " + move.getSender());
 		}
 		
 		public void onChatReceived (ChatEvent eventObj)
