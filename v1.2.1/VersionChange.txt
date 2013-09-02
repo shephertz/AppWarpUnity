@@ -1,0 +1,4 @@
+Bug Fixes from v1.2 asset
+
+1. JSON Namespace resolution
+2. Web player initialize fix by deriving WarpClient from MonoBehaviour
