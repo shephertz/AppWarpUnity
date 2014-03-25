@@ -36,6 +36,10 @@ namespace AssemblyCSharp
 			}
 			Log ("onConnectDone : " + eventObj.getResult());
 		}
+
+		public void onInitUDPDone(byte res)
+		{
+		}
 		
 		public void onLog(String message){
 			Log (message);
@@ -254,7 +258,7 @@ namespace AssemblyCSharp
 		public void onChatReceived (ChatEvent eventObj)
 		{
 			Log(eventObj.getSender() + " sended " + eventObj.getMessage());
-			SimpleJSON.JSONNode msg =  SimpleJSON.JSON.Parse(eventObj.getMessage());
+			com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSONNode msg =  com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSON.Parse(eventObj.getMessage());
 			
 			//msg[0] 
 			if(eventObj.getSender() != appwarp.username)
@@ -287,6 +291,22 @@ namespace AssemblyCSharp
 			{
 				WarpClient.GetInstance().SendChat(msg);
 			}
+		}
+		
+		public void onUserPaused(string a, bool b, string c)
+		{
+		}
+		
+		public void onUserResumed(string a, bool b, string c)
+		{
+		}
+		
+		public void onGameStarted(string a, string b, string c)
+		{
+		}
+		
+		public void onGameStopped(string a, string b)
+		{
 		}
 	}
 }
