@@ -208,13 +208,19 @@ namespace AssemblyCSharp
 		public void onSendUpdateDone (byte result)
 		{
 		}
-		
+		public void onSendPrivateUpdateDone (byte result)
+		{
+			Log ("onSendPrivateUpdateDone : " + result);
+		}
 		//NotifyListener
 		public void onRoomCreated (RoomData eventObj)
 		{
 			Log ("onRoomCreated");
 		}
-		
+		public void onPrivateUpdateReceived (string sender, byte[] update, bool fromUdp)
+		{
+			Log ("onPrivateUpdate");
+		}
 		public void onRoomDestroyed (RoomData eventObj)
 		{
 			Log ("onRoomDestroyed");
