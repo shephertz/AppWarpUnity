@@ -1,0 +1,2 @@
+* Updated CreateRoom and CreateTurnRoom APIs to take an additional cleanUpTime param which determines how long the room is to 
+  be kept alive at the server after its become empty.
