@@ -264,8 +264,7 @@ namespace AssemblyCSharp
 		public void onChatReceived (ChatEvent eventObj)
 		{
 			Log(eventObj.getSender() + " sended " + eventObj.getMessage());
-			com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSONNode msg =  com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSON.Parse(eventObj.getMessage());
-			
+			SimpleJSON.JSONNode msg =  SimpleJSON.JSON.Parse(eventObj.getMessage());
 			//msg[0] 
 			if(eventObj.getSender() != appwarp.username)
 			{

@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\appwarp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\Unity Development\WindowsPhoneUnityClientSample\Assets\ClientSample.cs">
     <Files>
-      <File FileName="Assets\Listener.cs" Line="261" Column="123" />
-      <File FileName="Assets\appwarp.cs" Line="19" Column="32" />
+      <File FileName="..\..\..\..\..\Unity Development\WindowsPhoneUnityClientSample\Assets\ClientSample.cs" Line="350" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
