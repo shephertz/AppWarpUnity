@@ -22,17 +22,30 @@ public class appwarp : MonoBehaviour {
 	public static string username;
 	Listener listen = new Listener();
 	public static Vector3 newPos = new Vector3(0,0,0);
-	
+	ConnListener connListener;
+	ZoneReqListener zoneListener;
+	RoomReqListener roomListener;
+	TurnListener turnListener;
+	LobbyListener lobbyListener;
+	NotificationListener notifyListener;
+	ChatListener chatListener;
 	void Start () {
+		chatListener = new ChatListener ();
+		connListener = new ConnListener ();
+		zoneListener = new ZoneReqListener ();
+		roomListener = new RoomReqListener ();
+		turnListener = new TurnListener ();
+		lobbyListener = new LobbyListener ();
+		notifyListener = new NotificationListener ();
 		WarpClient.initialize(apiKey,secretKey);
-		WarpClient.GetInstance().AddConnectionRequestListener(listen);
-		WarpClient.GetInstance().AddChatRequestListener(listen);
-		WarpClient.GetInstance().AddLobbyRequestListener(listen);
-		WarpClient.GetInstance().AddNotificationListener(listen);
-		WarpClient.GetInstance().AddRoomRequestListener(listen);
+		WarpClient.GetInstance().AddConnectionRequestListener(connListener);
+		WarpClient.GetInstance().AddChatRequestListener(chatListener);
 		WarpClient.GetInstance().AddUpdateRequestListener(listen);
-		WarpClient.GetInstance().AddZoneRequestListener(listen);
-		
+		WarpClient.GetInstance().AddLobbyRequestListener(lobbyListener);
+		WarpClient.GetInstance().AddNotificationListener(notifyListener);
+		WarpClient.GetInstance().AddRoomRequestListener(roomListener);
+		WarpClient.GetInstance().AddZoneRequestListener(zoneListener);
+		WarpClient.GetInstance ().AddTurnBasedRoomRequestListener (turnListener);
 		// join with a unique name (current time stamp)
 		username = System.DateTime.UtcNow.Ticks.ToString();
 		WarpClient.GetInstance().Connect(username);
