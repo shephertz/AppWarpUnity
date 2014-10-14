@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace AssemblyCSharp
 {
-	public class Listener : ConnectionRequestListener, LobbyRequestListener, ZoneRequestListener, RoomRequestListener, ChatRequestListener, UpdateRequestListener, NotifyListener
+	public class Listener : ConnectionRequestListener, LobbyRequestListener, ZoneRequestListener, RoomRequestListener, ChatRequestListener, UpdateRequestListener, NotifyListener, TurnBasedRoomListener
 	{
 		int state = 0;
 		string debug = "";
@@ -26,31 +26,42 @@ namespace AssemblyCSharp
 		{
 			return debug;
 		}
-		
+
+		public void onLog(String message){
+			Log (message);
+		}
+
+		public void sendMsg(string msg)
+		{
+			if(state == 1)
+			{
+				WarpClient.GetInstance().SendChat(msg);
+			}
+		}
+
 		//ConnectionRequestListener
+		#region ConnectionRequestListener
 		public void onConnectDone(ConnectEvent eventObj)
 		{
+			Log ("onConnectDone : " + eventObj.getResult());
 			if(eventObj.getResult() == 0)
 			{
 				WarpClient.GetInstance().SubscribeRoom(appwarp.roomid);
 			}
-			Log ("onConnectDone : " + eventObj.getResult());
 		}
 
 		public void onInitUDPDone(byte res)
 		{
 		}
 		
-		public void onLog(String message){
-			Log (message);
-		}
-		
 		public void onDisconnectDone(ConnectEvent eventObj)
 		{
 			Log("onDisconnectDone : " + eventObj.getResult());
 		}
+		#endregion
 		
 		//LobbyRequestListener
+		#region LobbyRequestListener
 		public void onJoinLobbyDone (LobbyEvent eventObj)
 		{
 			Log ("onJoinLobbyDone : " + eventObj.getResult());
@@ -83,8 +94,10 @@ namespace AssemblyCSharp
 		{
 			Log ("onGetLiveLobbyInfoDone : " + eventObj.getResult());
 		}
+		#endregion
 		
 		//ZoneRequestListener
+		#region ZoneRequestListener
 		public void onDeleteRoomDone (RoomEvent eventObj)
 		{
 			Log ("onDeleteRoomDone : " + eventObj.getResult());
@@ -93,6 +106,10 @@ namespace AssemblyCSharp
 		public void onGetAllRoomsDone (AllRoomsEvent eventObj)
 		{
 			Log ("onGetAllRoomsDone : " + eventObj.getResult());
+			for(int i=0; i< eventObj.getRoomIds().Length; ++i)
+			{
+				Log ("Room ID : " + eventObj.getRoomIds()[i]);
+			}
 		}
 		
 		public void onCreateRoomDone (RoomEvent eventObj)
@@ -126,7 +143,10 @@ namespace AssemblyCSharp
                 }
             }
 		}		
+		#endregion
+
 		//RoomRequestListener
+		#region RoomRequestListener
 		public void onSubscribeRoomDone (RoomEvent eventObj)
 		{
 			if(eventObj.getResult() == 0)
@@ -191,8 +211,10 @@ namespace AssemblyCSharp
                 Log ("Update Propert event received with fail status. Status is :" + eventObj.getResult().ToString());
             }
         }
+		#endregion
 		
 		//ChatRequestListener
+		#region ChatRequestListener
 		public void onSendChatDone (byte result)
 		{
 			Log ("onSendChatDone result : " + result);
@@ -203,8 +225,10 @@ namespace AssemblyCSharp
 		{
 			Log ("onSendPrivateChatDone : " + result);
 		}
+		#endregion
 		
 		//UpdateRequestListener
+		#region UpdateRequestListener
 		public void onSendUpdateDone (byte result)
 		{
 		}
@@ -212,7 +236,10 @@ namespace AssemblyCSharp
 		{
 			Log ("onSendPrivateUpdateDone : " + result);
 		}
+		#endregion
+
 		//NotifyListener
+		#region NotifyListener
 		public void onRoomCreated (RoomData eventObj)
 		{
 			Log ("onRoomCreated");
@@ -264,7 +291,7 @@ namespace AssemblyCSharp
 		public void onChatReceived (ChatEvent eventObj)
 		{
 			Log(eventObj.getSender() + " sended " + eventObj.getMessage());
-			SimpleJSON.JSONNode msg =  SimpleJSON.JSON.Parse(eventObj.getMessage());
+			com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSONNode msg =  com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSON.Parse(eventObj.getMessage());
 			//msg[0] 
 			if(eventObj.getSender() != appwarp.username)
 			{
@@ -289,30 +316,56 @@ namespace AssemblyCSharp
                 Log("VALUE:" + entry.Value.ToString());
             }
         }
-	
-		public void sendMsg(string msg)
+
+		
+		public void onUserPaused(String locid, Boolean isLobby, String username)
 		{
-			if(state == 1)
-			{
-				WarpClient.GetInstance().SendChat(msg);
-			}
+			Log("onUserPaused");
 		}
 		
-		public void onUserPaused(string a, bool b, string c)
+		public void onUserResumed(String locid, Boolean isLobby, String username)
+		{
+			Log("onUserResumed");
+		}
+		
+		public void onGameStarted(string sender, string roomId, string nextTurn)
+		{
+			Log("onGameStarted");
+		}
+		
+		public void onGameStopped(string sender, string roomId)
+		{
+			Log("onGameStopped");
+		}
+
+		public void onNextTurnRequest (string lastTurn)
+		{
+			Log("onNextTurnRequest");
+		}
+		#endregion
+
+		//TurnBasedRoomListener
+		#region TurnBasedRoomListener
+		public void onSendMoveDone(byte result)
 		{
 		}
 		
-		public void onUserResumed(string a, bool b, string c)
+		public void onStartGameDone(byte result)
 		{
 		}
 		
-		public void onGameStarted(string a, string b, string c)
+		public void onStopGameDone(byte result)
 		{
 		}
 		
-		public void onGameStopped(string a, string b)
+		public void onSetNextTurnDone(byte result)
 		{
 		}
+		
+		public void onGetMoveHistoryDone(byte result, MoveEvent[] moves)
+		{
+		}
+		#endregion
 	}
 }
 
