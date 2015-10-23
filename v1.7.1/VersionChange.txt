@@ -1,1 +1,0 @@
-* Bug fix in long message parsing. Regression introduced in previous build.

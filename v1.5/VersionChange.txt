@@ -1,2 +1,0 @@
-* Added Getter/Setter and SetGeo method Added to WarpClient to connect with desired location of AppWarp Server
-* Fixed GetAllRoom Bug

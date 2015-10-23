@@ -1,3 +1,0 @@
-*Add new apis 
-1 GetSessionId
-2 RecoverConnectionWithSessioId
