@@ -1,0 +1,2 @@
+* Better connection error detection
+* Private Update API
